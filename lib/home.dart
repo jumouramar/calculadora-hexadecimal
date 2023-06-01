@@ -10,9 +10,26 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   TextEditingController _textController = TextEditingController();
+  String _textFieldText = '';
 
-  void _onClick() {
-    print("click");
+  void _showAnswer() {
+    _textFieldText = '';
+    _textController.text = 'Resposta';
+  }
+
+  void _deleteAll() {
+    _textFieldText = '';
+    _textController.text = _textFieldText;
+  }
+
+  void _deleteLast() {
+    _textFieldText = _textFieldText.substring(0, _textFieldText.length - 1);
+    _textController.text = _textFieldText;
+  }
+
+  void _addText(text) {
+    _textFieldText += text;
+    _textController.text = _textFieldText;
   }
 
   @override
@@ -36,111 +53,177 @@ class _HomeState extends State<Home> {
             ),
             Row(children: [
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = 'A';
+                  _addText(text);
+                }, 
                 child: Text('A')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = 'B';
+                  _addText(text);
+                }, 
                 child: Text('B')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = 'C';
+                  _addText(text);
+                }, 
                 child: Text('C')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = 'D';
+                  _addText(text);
+                },
                 child: Text('D')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = 'E';
+                  _addText(text);
+                },  
                 child: Text('E')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = 'F';
+                  _addText(text);
+                },  
                 child: Text('F')
               ),
             ],),
             Row(children: [
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '7';
+                  _addText(text);
+                }, 
                 child: Text('7')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '8';
+                  _addText(text);
+                },  
                 child: Text('8')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '9';
+                  _addText(text);
+                },  
                 child: Text('9')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {_deleteLast();},  
                 child: Container(alignment: Alignment.center, width: 52, child: Text('DEL'))
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {_deleteAll();},
                 child: Container(alignment: Alignment.center, width: 52, child: Text('AC'))
               ),
             ],),
             Row(children: [
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '4';
+                  _addText(text);
+                },  
                 child: Text('4')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '5';
+                  _addText(text);
+                },
                 child: Text('5')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '6';
+                  _addText(text);
+                },  
                 child: Text('6')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = 'x';
+                  _addText(text);
+                },  
                 child: Container(alignment: Alignment.center, width: 52, child: Text('x'))
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '/';
+                  _addText(text);
+                },  
                 child: Container(alignment: Alignment.center, width: 52, child: Text('/'))
               ),
             ],),
             Row(children: [
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '1';
+                  _addText(text);
+                },  
                 child: Text('1')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '2';
+                  _addText(text);
+                },  
                 child: Text('2')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '3';
+                  _addText(text);
+                },  
                 child: Text('3')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '+';
+                  _addText(text);
+                },  
                 child: Container(alignment: Alignment.center, width: 52, child: Text('+'))
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '-';
+                  _addText(text);
+                },  
                 child: Container(alignment: Alignment.center, width: 52, child: Text('-'))
               ),
             ],),
             Row(children: [
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '.';
+                  _addText(text);
+                },  
                 child: Text('.')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '0';
+                  _addText(text);
+                },  
                 child: Text('0')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () {
+                  String text = '00';
+                  _addText(text);
+                },  
                 child: Text('00')
               ),
               ElevatedButton(
-                onPressed: _onClick, 
+                onPressed: () { _showAnswer();},  
                 child: Container(alignment: Alignment.center, width: 135, child: Text('='))
               ),
               ],
