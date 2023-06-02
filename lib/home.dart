@@ -28,8 +28,6 @@ class _HomeState extends State<Home> {
       }
     }
     numbersList.add(number);
-    print('Lista operadores: $operatorsList');
-    print('Lista números: $numbersList');
   }
 
   int _calculator(num1, num2, op) {
@@ -66,7 +64,6 @@ class _HomeState extends State<Home> {
     int total = 0;
     String numHex = '';
 
-    // operações 'x' e '/'
     for(int i = 0; i < operatorsList.length; i++){
       if(operatorsList[i] == 'x' ||  operatorsList[i] == '/'){
         num1 = _convertToDecimal(numbersList[i]);
@@ -74,27 +71,35 @@ class _HomeState extends State<Home> {
         num2 = _convertToDecimal(numbersList[i+1]);
         total = _calculator(num1, num2, op);
 
+        print('Lista operadores: $operatorsList');
+        print('Lista números: $numbersList');
+        print('$num1 $op $num2 = $total');
+
         operatorsList.remove(operatorsList[i]);
         numbersList[i] = total.toString();
         numbersList.remove(numbersList[i+1]);
 
-        i = 0;
-
-        print('Valor 1: $num1, Valor 2: $num2, Op: $op');
-        print('Resultado $i operação: $total');
+        i = -1;
       }
     }    
 
-    // operações '+' e '-'
     for(int i = 0; i < operatorsList.length; i++){
-      num1 = _convertToDecimal(numbersList[i]);
-      op = operatorsList[i];
-      num2 = _convertToDecimal(numbersList[i+1]);
-      total = _calculator(num1, num2, op);
+      if(operatorsList[i] == '+' ||  operatorsList[i] == '-'){
+        num1 = _convertToDecimal(numbersList[i]);
+        op = operatorsList[i];
+        num2 = _convertToDecimal(numbersList[i+1]);
+        total = _calculator(num1, num2, op);
 
-      print('Valor 1: $num1, Valor 2: $num2, Op: $op');
-      print('Resultado $i operação: $total');
-      num1 = total;
+        print('Lista operadores: $operatorsList');
+        print('Lista números: $numbersList');
+        print('$num1 $op $num2 = $total');
+
+        operatorsList.remove(operatorsList[i]);
+        numbersList[i] = total.toString();
+        numbersList.remove(numbersList[i+1]);
+
+        i = -1;
+      }
     }
     
     numHex = _convertToHex(total);
