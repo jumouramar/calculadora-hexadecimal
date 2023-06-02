@@ -60,13 +60,34 @@ class _HomeState extends State<Home> {
   }
 
   String _loop() {
-    int num1 = _convertToDecimal(numbersList[0]);
+    int num1;
     int num2;
     String op = '';
     int total = 0;
     String numHex = '';
 
+    // operações 'x' e '/'
     for(int i = 0; i < operatorsList.length; i++){
+      if(operatorsList[i] == 'x' ||  operatorsList[i] == '/'){
+        num1 = _convertToDecimal(numbersList[i]);
+        op = operatorsList[i];
+        num2 = _convertToDecimal(numbersList[i+1]);
+        total = _calculator(num1, num2, op);
+
+        operatorsList.remove(operatorsList[i]);
+        numbersList[i] = total.toString();
+        numbersList.remove(numbersList[i+1]);
+
+        i = 0;
+
+        print('Valor 1: $num1, Valor 2: $num2, Op: $op');
+        print('Resultado $i operação: $total');
+      }
+    }    
+
+    // operações '+' e '-'
+    for(int i = 0; i < operatorsList.length; i++){
+      num1 = _convertToDecimal(numbersList[i]);
       op = operatorsList[i];
       num2 = _convertToDecimal(numbersList[i+1]);
       total = _calculator(num1, num2, op);
@@ -75,6 +96,7 @@ class _HomeState extends State<Home> {
       print('Resultado $i operação: $total');
       num1 = total;
     }
+    
     numHex = _convertToHex(total);
     return numHex;
   }
