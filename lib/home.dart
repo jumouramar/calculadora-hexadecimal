@@ -12,9 +12,79 @@ class _HomeState extends State<Home> {
   TextEditingController _textController = TextEditingController();
   String _textFieldText = '';
 
+  List<String> operatorsList = [];
+  List<String> numbersList = [];
+
+  void _findLists() {
+    String number = '';
+    for(int i = 0; i<_textFieldText.length; i++) {
+      if(_textFieldText[i] == '+' || _textFieldText[i] == '-' || _textFieldText[i] == '/' || _textFieldText[i] == 'x') {
+        numbersList.add(number);
+        operatorsList.add(_textFieldText[i]);
+        number = '';
+      }
+      else {
+       number = number + _textFieldText[i]; 
+      }
+    }
+    numbersList.add(number);
+    print('Lista operadores: $operatorsList');
+    print('Lista números: $numbersList');
+  }
+
+  int _calculator(num1, num2, op) {
+    int total = 0;
+    if(op == '+') {
+      total = num1 + num2;
+    }
+    else if(op == '-') {
+      total = num1 - num2;
+    }
+    else if(op == 'x') {
+      total = num1 * num2;
+    }
+    else if(op == '/') {
+      total = num1 / num2;
+    }
+    return total;
+  }
+
+  int _convertToDecimal(number) {
+    int decimal = int.parse(number, radix: 16);
+    return decimal;
+  }
+
+  String _convertToHex(number) {
+    String hex = number.toRadixString(16).toUpperCase();
+    return hex;
+  }
+
+  String _loop() {
+    int num1 = _convertToDecimal(numbersList[0]);
+    int num2;
+    String op = '';
+    int total = 0;
+    String numHex = '';
+
+    for(int i = 0; i < operatorsList.length; i++){
+      op = operatorsList[i];
+      num2 = _convertToDecimal(numbersList[i+1]);
+      total = _calculator(num1, num2, op);
+
+      print('Valor 1: $num1, Valor 2: $num2, Op: $op');
+      print('Resultado $i operação: $total');
+      num1 = total;
+    }
+    numHex = _convertToHex(total);
+    return numHex;
+  }
+  
   void _showAnswer() {
+    _findLists();
+    _textController.text = _loop();
     _textFieldText = '';
-    _textController.text = 'Resposta';
+    operatorsList = [];
+    numbersList = [];
   }
 
   void _deleteAll() {
