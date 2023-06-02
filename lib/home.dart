@@ -30,8 +30,8 @@ class _HomeState extends State<Home> {
     numbersList.add(number);
   }
 
-  int _calculator(num1, num2, op) {
-    int total = 0;
+  double _calculator(num1, num2, op) {
+    double total = 0;
     if(op == '+') {
       total = num1 + num2;
     }
@@ -47,21 +47,22 @@ class _HomeState extends State<Home> {
     return total;
   }
 
-  int _convertToDecimal(number) {
-    int decimal = int.parse(number, radix: 16);
+  double _convertToDecimal(number) {
+    int intValue = int.parse(number, radix: 16);
+    double decimal = intValue.toDouble();
     return decimal;
   }
 
   String _convertToHex(number) {
-    String hex = number.toRadixString(16).toUpperCase();
+    String hex = number.toInt().toRadixString(16).toUpperCase();
     return hex;
   }
 
   String _loop() {
-    int num1;
-    int num2;
+    double num1;
+    double num2;
     String op = '';
-    int total = 0;
+    double total = 0;
     String numHex = '';
 
     for(int i = 0; i < operatorsList.length; i++){
@@ -300,10 +301,10 @@ class _HomeState extends State<Home> {
             Row(children: [
               ElevatedButton(
                 onPressed: () {
-                  String text = '.';
+                  String text = '00';
                   _addText(text);
                 },  
-                child: Text('.')
+                child: Text('00')
               ),
               ElevatedButton(
                 onPressed: () {
