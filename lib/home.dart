@@ -121,8 +121,10 @@ class _HomeState extends State<Home> {
   }
 
   void _deleteLast() {
-    _textFieldText = _textFieldText.substring(0, _textFieldText.length - 1);
-    _textController.text = _textFieldText;
+    if( _textFieldText != ''){
+      _textFieldText = _textFieldText.substring(0, _textFieldText.length - 1);
+      _textController.text = _textFieldText;
+    }
   }
 
   void _addText(text) {
