@@ -107,6 +107,11 @@ class _HomeState extends State<Home> {
     return numHex;
   }
   
+  void _showAnswerEnter(text){
+    _textFieldText = text;
+    _showAnswer();
+  }
+
   void _showAnswer() {
     _findLists();
     _textController.text = _loop();
@@ -150,6 +155,10 @@ class _HomeState extends State<Home> {
                 fontSize: 50,
                 color: Colors.white
               ),
+              onChanged: (String text){},
+              onSubmitted: (String text) {
+                _showAnswerEnter(text);
+              },
             ),
             Row(children: [
               ElevatedButton(
