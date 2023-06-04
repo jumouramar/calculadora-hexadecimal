@@ -142,203 +142,218 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Calculadora Hexadecimal'),
-        backgroundColor: Colors.grey,
       ),
-      backgroundColor: const Color.fromARGB(53, 158, 158, 158),
-      body: Center(
-        child: Column(
-          children: [
-            TextField(
-              controller: _textController,
-              keyboardType: TextInputType.number,
-              style: TextStyle(
-                fontSize: 50,
-                color: Colors.white
-              ),
-              onChanged: (String text){},
-              onSubmitted: (String text) {
-                _showAnswerEnter(text);
-              },
+      body:Column(
+        children: [
+          TextField(
+            controller: _textController,
+            keyboardType: TextInputType.number,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 50,
+              color: Colors.blue
             ),
-            Row(children: [
+            decoration: InputDecoration(
+              border: InputBorder.none,
+            ),
+            onChanged: (String text){},
+            onSubmitted: (String text) {
+              _showAnswerEnter(text);
+            },
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center, 
+            children: [
               ElevatedButton(
                 onPressed: () {
                   String text = 'A';
                   _addText(text);
                 }, 
-                child: Text('A')
+                //child: Text('A')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('A'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = 'B';
                   _addText(text);
                 }, 
-                child: Text('B')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('B'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = 'C';
                   _addText(text);
                 }, 
-                child: Text('C')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('C'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = 'D';
                   _addText(text);
                 },
-                child: Text('D')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('D'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = 'E';
                   _addText(text);
                 },  
-                child: Text('E')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('E'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = 'F';
                   _addText(text);
                 },  
-                child: Text('F')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('F'))
               ),
-            ],),
-            Row(children: [
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               ElevatedButton(
                 onPressed: () {
                   String text = '7';
                   _addText(text);
                 }, 
-                child: Text('7')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('7'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '8';
                   _addText(text);
                 },  
-                child: Text('8')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('8'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '9';
                   _addText(text);
                 },  
-                child: Text('9')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('9'))
               ),
               ElevatedButton(
                 onPressed: () {_deleteLast();},  
-                child: Container(alignment: Alignment.center, width: 52, child: Text('DEL'))
+                child: Container(alignment: Alignment.center, width: 52, height: 50, child: Text('DEL'))
               ),
               ElevatedButton(
                 onPressed: () {_deleteAll();},
-                child: Container(alignment: Alignment.center, width: 52, child: Text('AC'))
+                child: Container(alignment: Alignment.center, width: 52, height: 50, child: Text('AC'))
               ),
-            ],),
-            Row(children: [
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               ElevatedButton(
                 onPressed: () {
                   String text = '4';
                   _addText(text);
                 },  
-                child: Text('4')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('4'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '5';
                   _addText(text);
                 },
-                child: Text('5')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('5'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '6';
                   _addText(text);
                 },  
-                child: Text('6')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('6'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = 'x';
                   _addText(text);
                 },  
-                child: Container(alignment: Alignment.center, width: 52, child: Text('x'))
+                child: Container(alignment: Alignment.center, width: 52, height: 50, child: Text('x'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '/';
                   _addText(text);
                 },  
-                child: Container(alignment: Alignment.center, width: 52, child: Text('/'))
+                child: Container(alignment: Alignment.center, width: 52, height: 50, child: Text('/'))
               ),
-            ],),
-            Row(children: [
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               ElevatedButton(
                 onPressed: () {
                   String text = '1';
                   _addText(text);
                 },  
-                child: Text('1')
+               child: Container(alignment: Alignment.center, height: 50, child: Text('1'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '2';
                   _addText(text);
                 },  
-                child: Text('2')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('2'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '3';
                   _addText(text);
                 },  
-                child: Text('3')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('3'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '+';
                   _addText(text);
                 },  
-                child: Container(alignment: Alignment.center, width: 52, child: Text('+'))
+                child: Container(alignment: Alignment.center, width: 52, height: 50, child: Text('+'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '-';
                   _addText(text);
                 },  
-                child: Container(alignment: Alignment.center, width: 52, child: Text('-'))
+                child: Container(alignment: Alignment.center, width: 52, height: 50, child: Text('-'))
               ),
-            ],),
-            Row(children: [
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               ElevatedButton(
                 onPressed: () {
                   String text = '00';
                   _addText(text);
                 },  
-                child: Text('00')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('00'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '0';
                   _addText(text);
                 },  
-                child: Text('0')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('0'))
               ),
               ElevatedButton(
                 onPressed: () {
                   String text = '00';
                   _addText(text);
                 },  
-                child: Text('00')
+                child: Container(alignment: Alignment.center, height: 50, child: Text('00'))
               ),
               ElevatedButton(
                 onPressed: () { _showAnswer();},  
-                child: Container(alignment: Alignment.center, width: 135, child: Text('='))
+                child: Container(alignment: Alignment.center, width: 135, height: 50, child: Text('='))
               ),
-              ],
-            )
-          ],
-        ),
+            ],
+          )
+        ],
       ),
     );
   }
