@@ -107,17 +107,27 @@ class _HomeState extends State<Home> {
     return numHex;
   }
   
+  void _showError() {
+    _textController.text = 'Error';
+    _textFieldText = '';
+  }
+
   void _showAnswerEnter(text){
     _textFieldText = text;
     _showAnswer();
   }
 
   void _showAnswer() {
-    _findLists();
-    _textController.text = _loop();
-    _textFieldText = '';
-    operatorsList = [];
-    numbersList = [];
+   if(_textFieldText[0] == '+' || _textFieldText[0] == '-' || _textFieldText[0] == 'x' || _textFieldText[0] == '/'){
+      _showError();
+    }
+    else {
+      _findLists();
+      _textController.text = _loop();
+      _textFieldText = '';
+      operatorsList = [];
+      numbersList = [];
+    }
   }
 
   void _deleteAll() {
