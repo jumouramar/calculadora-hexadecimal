@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
         print('$num1 $op $num2 = $total');
 
         operatorsList.remove(operatorsList[i]);
-        numbersList[i] = total.toString();
+        numbersList[i] = total.toInt().toString();
         numbersList.remove(numbersList[i+1]);
 
         i = -1;
@@ -96,7 +96,7 @@ class _HomeState extends State<Home> {
         print('$num1 $op $num2 = $total');
 
         operatorsList.remove(operatorsList[i]);
-        numbersList[i] = total.toString();
+        numbersList[i] = total.toInt().toString();
         numbersList.remove(numbersList[i+1]);
 
         i = -1;
