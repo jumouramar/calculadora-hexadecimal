@@ -1,16 +1,20 @@
-# calculadora_hexa
+<h1>CALCULADORA HEXADECIMAL</h1>
+Calculadora Hexadecimal de números inteiros.
 
-A new Flutter project.
+<h2>Como inicializar:</h2>
+<ol>
+  <li>Instale Flutter na sua máquina</li>
+  <li>Clone esse repositório</li>
+  <li>cd na pasta</li>
+  <li>flutter run</li>
+  <li>Escolha o emulador</li>
+</ol>
 
-## Getting Started
+<h2>Preview</h2>
+<img src="https://github.com/jumouramar/calculadora-hexadecimal/assets/46768364/2f61624c-5aff-4dd4-b95c-b89ff7871ce0">
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h2>Pode ser melhorado:</h2>
+<ul>
+  <li>Hexadecimal em números fracionarios</li>
+  <li>Botões a partir de um componente</li>
+</ul>
